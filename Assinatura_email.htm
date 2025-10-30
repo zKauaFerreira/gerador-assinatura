@@ -1,0 +1,369 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Generator" content="Microsoft Word 15 (filtered)" />
+    <style>
+      <!--
+       /* Font Definitions */
+       @font-face {font-family:"Cambria Math"; panose-1:2 4 5 3 5 4 6 3 2 4;}
+       @font-face {font-family:Calibri; panose-1:2 15 5 2 2 2 4 3 2 4;}
+       @font-face {font-family:Aptos;}
+       @font-face {font-family:"Segoe UI Emoji"; panose-1:2 11 5 2 4 2 4 2 2 3;}
+       /* Style Definitions */
+       p.MsoNormal, li.MsoNormal, div.MsoNormal {margin-top:0cm; margin-right:0cm; margin-bottom:8.0pt; margin-left:0cm; line-height:115%; font-size:12.0pt; font-family:"Aptos",sans-serif;}
+       .MsoChpDefault {font-size:12.0pt; font-family:"Aptos",sans-serif;}
+       .MsoPapDefault {margin-bottom:8.0pt; line-height:115%;}
+       @page WordSection1 {size:595.3pt 841.9pt; margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+       div.WordSection1 {page:WordSection1;}
+
+       /* Estilo dos inputs */
+       .signature-controls {
+         margin-bottom:12px;
+         padding:10px;
+         border-radius:6px;
+         background:#fbfbfb;
+         border:1px solid #eee;
+         font-family:Aptos, Calibri, sans-serif;
+       }
+       .signature-controls label {
+         display:block;
+         font-size:11px;
+         color:#666;
+         margin-bottom:4px;
+       }
+       .signature-controls input[type="text"] {
+         width:100%;
+         padding:8px;
+         border:1px solid #ddd;
+         border-radius:6px;
+         margin-bottom:8px;
+         font-size:13px;
+       }
+       .signature-controls .row {
+         display:flex;
+         gap:8px;
+       }
+       .signature-controls button {
+         padding:8px 10px;
+         border-radius:6px;
+         border:0;
+         cursor:pointer;
+         font-weight:600;
+       }
+       .signature-controls button.primary {
+         background:#2b7cff;
+         color:white;
+       }
+       .signature-controls button.ghost {
+         background:#f0f0f0;
+         color:#111;
+       }
+       .result-bubble {
+         margin-top:8px;
+         padding:8px;
+         background:#fff;
+         border-radius:6px;
+         border:1px dashed #e6e6e6;
+         display:none;
+       }
+       .hint-small {
+         font-size:11px;
+         color:#666;
+         margin-top:6px;
+       }
+      -->
+    </style>
+  </head>
+
+  <body
+    lang="PT-BR"
+    link="#467886"
+    vlink="#96607D"
+    style="word-wrap: break-word"
+  >
+    <div class="WordSection1">
+      <!-- CONTROLES ADICIONADOS -->
+      <div id="signatureControls" class="signature-controls">
+        <div>
+          <label for="nomeInput"
+            >Texto 1 (será inserido onde está "Escreva seu Nome")</label
+          >
+          <input id="nomeInput" type="text" placeholder="Ex: João Silva" />
+        </div>
+        <div>
+          <label for="cargoInput"
+            >Texto 2 (será inserido onde está "Escreva seu Cargo")</label
+          >
+          <input
+            id="cargoInput"
+            type="text"
+            placeholder="Ex: Analista de Geotecnologias"
+          />
+        </div>
+        <div class="row">
+          <button id="applyBtn" class="primary">Inserir e Mostrar</button>
+          <button id="editBtn" class="ghost" style="display: none">
+            Editar
+          </button>
+        </div>
+        <div id="resultBubble" class="result-bubble" aria-hidden="true">
+          <div id="combinedPreview" style="font-size: 13px; color: #222"></div>
+          <div class="hint-small">
+            Os inputs somem quando você clica em "Inserir e Mostrar".
+          </div>
+        </div>
+      </div>
+
+      <p
+        class="MsoNormal"
+        style="margin-bottom: 0cm; line-height: normal; background: white"
+      >
+        <b
+          ><span
+            style="
+              font-size: 14pt;
+              font-family: 'Calibri', sans-serif;
+              color: #6faa27;
+            "
+            id="nomePlaceholder"
+            >Escreva seu Nome</span
+          ></b
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          id="cargoPlaceholder"
+          >Escreva seu Cargo</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Tel.: (51) 3209 – 4722</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <a href="https://codex.com.br/"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >codex.com.br</span
+          ></a
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <a href="https://www.linkedin.com/company/codexcorporacao"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >LinkedIn</span
+          ></a
+        ><span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >&nbsp;|</span
+        ><a href="https://www.instagram.com/codexcorporacao/"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >Instagram</span
+          ></a
+        ><span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >&nbsp;|</span
+        ><span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #b7b7b7;
+          "
+        >
+        </span
+        ><a href="https://www.facebook.com/Codex-105358185476740"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >Facebook</span
+          ></a
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span style="color: black"
+          ><img
+            border="0"
+            width="225"
+            height="64"
+            id="logoImg"
+            src="Assinatura_Email_20Anos_arquivos/image001.png"
+            alt="Logotipo&#10;&#10;O conteúdo gerado por IA pode estar incorreto."
+        /></span>
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Esri Partner Network – Gold</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span style="font-family: 'Times New Roman', serif; color: black"
+          >&nbsp;</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Esta mensagem pode conter informação confidencial ou privilegiada,
+          sendo seu sigilo protegido por lei.</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Se você recebeu esta mensagem por engano, por favor, avise
+          imediatamente ao remetente, respondendo o e-mail e em seguida
+          apague-a.</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Agradecemos sua cooperação.</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span style="font-family: 'Times New Roman', serif; color: black"
+          >&nbsp;</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Segoe UI Emoji', sans-serif;
+            color: #548235;
+          "
+          >&#127795;</span
+        ><span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #548235;
+          "
+          >&nbsp;Pense em sua responsabilidade e compromisso com o Meio
+          Ambiente. Só imprima se for realmente necessário.</span
+        >
+      </p>
+
+      <p class="MsoNormal" style="line-height: normal">
+        <span style="color: black">&nbsp;</span>
+      </p>
+
+      <p class="MsoNormal">&nbsp;</p>
+    </div>
+
+    <script>
+      const IMAGE_URL =
+        "https://raw.githubusercontent.com/cdxhostfiles/sign/refs/heads/main/image001.png";
+
+      const nomeInput = document.getElementById("nomeInput");
+      const cargoInput = document.getElementById("cargoInput");
+      const applyBtn = document.getElementById("applyBtn");
+      const editBtn = document.getElementById("editBtn");
+      const resultBubble = document.getElementById("resultBubble");
+      const combinedPreview = document.getElementById("combinedPreview");
+
+      const nomePlaceholder = document.getElementById("nomePlaceholder");
+      const cargoPlaceholder = document.getElementById("cargoPlaceholder");
+      const logoImg = document.getElementById("logoImg");
+
+      applyBtn.addEventListener("click", () => {
+        const nome = nomeInput.value.trim();
+        const cargo = cargoInput.value.trim();
+
+        if (!nome && !cargo) {
+          alert("Preencha pelo menos um dos campos antes de inserir.");
+          return;
+        }
+
+        if (nome) nomePlaceholder.innerText = nome;
+        if (cargo) cargoPlaceholder.innerText = cargo;
+
+        logoImg.src = IMAGE_URL;
+
+        const previewText = [nome, cargo].filter(Boolean).join(" — ");
+        combinedPreview.innerText = previewText;
+        resultBubble.style.display = "block";
+        resultBubble.setAttribute("aria-hidden", "false");
+
+        document.getElementById("signatureControls").style.display = "none";
+        editBtn.style.display = "inline-block";
+      });
+
+      editBtn.addEventListener("click", () => {
+        document.getElementById("signatureControls").style.display = "block";
+        editBtn.style.display = "none";
+        resultBubble.style.display = "none";
+      });
+
+      window.addEventListener("load", function () {
+        logoImg.src = IMAGE_URL;
+      });
+    </script>
+  </body>
+</html>
