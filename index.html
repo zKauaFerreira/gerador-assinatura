@@ -1,209 +1,587 @@
 <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Generator" content="Microsoft Word 15 (filtered)" />
+    <style>
+      <!--
+       /* Font Definitions */
+       @font-face {font-family:"Cambria Math"; panose-1:2 4 5 3 5 4 6 3 2 4;}
+       @font-face {font-family:Calibri; panose-1:2 15 5 2 2 2 4 3 2 4;}
+       @font-face {font-family:Aptos;}
+       @font-face {font-family:"Segoe UI Emoji"; panose-1:2 11 5 2 4 2 4 2 2 3;}
+       /* Style Definitions */
+       p.MsoNormal, li.MsoNormal, div.MsoNormal {margin-top:0cm; margin-right:0cm; margin-bottom:8.0pt; margin-left:0cm; line-height:115%; font-size:12.0pt; font-family:"Aptos",sans-serif;}
+       .MsoChpDefault {font-size:12.0pt; font-family:"Aptos",sans-serif;}
+       .MsoPapDefault {margin-bottom:8.0pt; line-height:115%;}
+       @page WordSection1 {size:595.3pt 841.9pt; margin:70.85pt 3.0cm 70.85pt 3.0cm;}
+       div.WordSection1 {page:WordSection1;}
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="Generator" content="Microsoft Word 15 (filtered)">
-<style>
-<!--
- /* Font Definitions */
- @font-face {font-family:"Cambria Math"; panose-1:2 4 5 3 5 4 6 3 2 4;}
- @font-face {font-family:Calibri; panose-1:2 15 5 2 2 2 4 3 2 4;}
- @font-face {font-family:Aptos;}
- @font-face {font-family:"Segoe UI Emoji"; panose-1:2 11 5 2 4 2 4 2 2 3;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal {margin-top:0cm; margin-right:0cm; margin-bottom:8.0pt; margin-left:0cm; line-height:115%; font-size:12.0pt; font-family:"Aptos",sans-serif;}
- .MsoChpDefault {font-size:12.0pt; font-family:"Aptos",sans-serif;}
- .MsoPapDefault {margin-bottom:8.0pt; line-height:115%;}
- @page WordSection1 {size:595.3pt 841.9pt; margin:70.85pt 3.0cm 70.85pt 3.0cm;}
- div.WordSection1 {page:WordSection1;}
+       /* Estilo dos inputs */
+       .signature-controls {
+         margin-bottom:12px;
+         padding:10px;
+         border-radius:6px;
+         background:#fbfbfb;
+         border:1px solid #eee;
+         font-family:Aptos, Calibri, sans-serif;
+       }
+       .signature-controls label {
+         display:block;
+         font-size:11px;
+         color:#666;
+         margin-bottom:4px;
+       }
+       .signature-controls input[type="text"], .signature-controls select {
+         width:100%;
+         padding:8px;
+         border:1px solid #ddd;
+         border-radius:6px;
+         margin-bottom:8px;
+         font-size:13px;
+       }
+       .signature-controls .row {
+         display:flex;
+         gap:8px;
+       }
+       .signature-controls button {
+         padding:8px 10px;
+         border-radius:6px;
+         border:0;
+         cursor:pointer;
+         font-weight:600;
+       }
+       .signature-controls button.primary {
+         background:#2b7cff;
+         color:white;
+       }
+       .signature-controls button.ghost {
+         background:#f0f0f0;
+         color:#111;
+       }
+       .result-bubble {
+         margin-top:8px;
+         padding:8px;
+         background:#fff;
+         border-radius:6px;
+         border:1px dashed #e6e6e6;
+         display:none;
+         position: relative;
+       }
+       .hint-small {
+         font-size:11px;
+         color:#666;
+         margin-top:6px;
+       }
+       /* Botão de link base */
+       #baseLinkBtn {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         padding: 6px 12px;
+         background: #2b7cff;
+         color: #fff;
+         border: none;
+         border-radius: 6px;
+         font-size: 12px;
+         cursor: pointer;
+         display: none;
+         z-index: 999;
+       }
+      -->
+    </style>
+  </head>
 
- /* Estilo dos inputs */
- .signature-controls {
-   margin-bottom:12px;
-   padding:10px;
-   border-radius:6px;
-   background:#fbfbfb;
-   border:1px solid #eee;
-   font-family:Aptos, Calibri, sans-serif;
- }
- .signature-controls label {
-   display:block;
-   font-size:11px;
-   color:#666;
-   margin-bottom:4px;
- }
- .signature-controls input[type="text"] {
-   width:100%;
-   padding:8px;
-   border:1px solid #ddd;
-   border-radius:6px;
-   margin-bottom:8px;
-   font-size:13px;
- }
- .signature-controls .row {
-   display:flex;
-   gap:8px;
- }
- .signature-controls button {
-   padding:8px 10px;
-   border-radius:6px;
-   border:0;
-   cursor:pointer;
-   font-weight:600;
- }
- .signature-controls button.primary {
-   background:#2b7cff;
-   color:white;
- }
- .signature-controls button.ghost {
-   background:#f0f0f0;
-   color:#111;
- }
- .result-bubble {
-   margin-top:8px;
-   padding:8px;
-   background:#fff;
-   border-radius:6px;
-   border:1px dashed #e6e6e6;
-   display:none;
- }
- .hint-small {
-   font-size:11px;
-   color:#666;
-   margin-top:6px;
- }
--->
-</style>
+  <body
+    lang="PT-BR"
+    link="#467886"
+    vlink="#96607D"
+    style="word-wrap: break-word"
+  >
+    <div class="WordSection1">
+      <!-- CONTROLES ADICIONADOS -->
+      <div id="signatureControls" class="signature-controls">
+        <div>
+          <label for="nomeSelect">Selecione um Nome</label>
+          <select id="nomeSelect">
+            <option value="">-- Escolha um usuário --</option>
+          </select>
+        </div>
+        <div>
+          <label for="nomeInput">Texto 1 (Nome)</label>
+          <input id="nomeInput" type="text" placeholder="Ex: João Silva" />
+        </div>
+        <div>
+          <label for="cargoInput">Texto 2 (Cargo)</label>
+          <input
+            id="cargoInput"
+            type="text"
+            placeholder="Ex: Analista de Geotecnologias"
+          />
+        </div>
+        <div class="row">
+          <button id="applyBtn" class="primary">Inserir e Mostrar</button>
+          <button id="backBtn" class="ghost" style="display: none">
+            Voltar
+          </button>
+        </div>
+        <div id="resultBubble" class="result-bubble" aria-hidden="true">
+          <div id="combinedPreview" style="font-size: 13px; color: #222"></div>
+          <div class="hint-small">
+            Os inputs somem quando você clica em "Inserir e Mostrar".
+          </div>
+        </div>
+      </div>
 
-</head>
+      <button
+        id="baseLinkBtn"
+        onclick="window.location.href='https://zkauaferreira.github.io/gerador-assinatura/'"
+      >
+        Voltar ao Início
+      </button>
 
-<body lang="PT-BR" link="#467886" vlink="#96607D" style='word-wrap:break-word'>
+      <!-- Conteúdo da assinatura -->
+      <p
+        class="MsoNormal"
+        style="margin-bottom: 0cm; line-height: normal; background: white"
+      >
+        <b
+          ><span
+            style="
+              font-size: 14pt;
+              font-family: 'Calibri', sans-serif;
+              color: #6faa27;
+            "
+            id="nomePlaceholder"
+            >Escreva seu Nome</span
+          ></b
+        >
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          id="cargoPlaceholder"
+          >Escreva seu Cargo</span
+        >
+      </p>
 
-<div class="WordSection1">
+      <p class="MsoNormal" style="line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Tel.: (51) 3209 – 4722</span
+        >
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <a href="https://codex.com.br/"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >codex.com.br</span
+          ></a
+        >
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <a href="https://www.linkedin.com/company/codexcorporacao"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >LinkedIn</span
+          ></a
+        >
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+        >
+          |
+        </span>
+        <a href="https://www.instagram.com/codexcorporacao/"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >Instagram</span
+          ></a
+        >
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+        >
+          |
+        </span>
+        <a href="https://www.facebook.com/Codex-105358185476740"
+          ><span
+            style="
+              font-size: 11pt;
+              font-family: 'Calibri', sans-serif;
+              color: #999999;
+            "
+            >Facebook</span
+          ></a
+        >
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span style="color: black"
+          ><img
+            border="0"
+            width="225"
+            height="64"
+            id="logoImg"
+            src="Assinatura_Email_20Anos_arquivos/image001.png"
+            alt="Logotipo"
+        /></span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 11pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Esri Partner Network – Gold</span
+        >
+      </p>
 
-<!-- CONTROLES ADICIONADOS -->
-<div id="signatureControls" class="signature-controls">
-  <div>
-    <label for="nomeInput">Texto 1 (será inserido onde está "Escreva seu Nome")</label>
-    <input id="nomeInput" type="text" placeholder="Ex: João Silva">
-  </div>
-  <div>
-    <label for="cargoInput">Texto 2 (será inserido onde está "Escreva seu Cargo")</label>
-    <input id="cargoInput" type="text" placeholder="Ex: Analista de Geotecnologias">
-  </div>
-  <div class="row">
-    <button id="applyBtn" class="primary">Inserir e Mostrar</button>
-    <button id="editBtn" class="ghost" style="display:none">Editar</button>
-  </div>
-  <div id="resultBubble" class="result-bubble" aria-hidden="true">
-    <div id="combinedPreview" style="font-size:13px;color:#222"></div>
-    <div class="hint-small">Os inputs somem quando você clica em "Inserir e Mostrar".</div>
-  </div>
-</div>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+        >
+          Esta mensagem pode conter informação confidencial ou privilegiada,
+          sendo seu sigilo protegido por lei.
+        </span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+        >
+          Se você recebeu esta mensagem por engano, por favor, avise
+          imediatamente ao remetente, respondendo o e-mail e em seguida
+          apague-a.
+        </span>
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #999999;
+          "
+          >Agradecemos sua cooperação.</span
+        >
+      </p>
+      <p class="MsoNormal" style="margin-bottom: 0cm; line-height: normal">
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Segoe UI Emoji', sans-serif;
+            color: #548235;
+          "
+          >&#127795;</span
+        >
+        <span
+          style="
+            font-size: 8pt;
+            font-family: 'Calibri', sans-serif;
+            color: #548235;
+          "
+        >
+          &nbsp;Pense em sua responsabilidade e compromisso com o Meio Ambiente.
+          Só imprima se for realmente necessário.
+        </span>
+      </p>
+    </div>
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal;background:white'><b><span
-style='font-size:14.0pt;font-family:"Calibri",sans-serif;color:#6FAA27' id="nomePlaceholder">Escreva seu Nome</span></b></p>
+    <script>
+      const IMAGE_URL =
+        "https://raw.githubusercontent.com/cdxhostfiles/sign/refs/heads/main/image001.png";
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span
-style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999' id="cargoPlaceholder">Escreva seu Cargo</span></p>
+      const nomeInput = document.getElementById("nomeInput");
+      const cargoInput = document.getElementById("cargoInput");
+      const applyBtn = document.getElementById("applyBtn");
+      const backBtn = document.getElementById("backBtn");
+      const baseLinkBtn = document.getElementById("baseLinkBtn");
+      const resultBubble = document.getElementById("resultBubble");
+      const combinedPreview = document.getElementById("combinedPreview");
+      const signatureControls = document.getElementById("signatureControls");
+      const nomePlaceholder = document.getElementById("nomePlaceholder");
+      const cargoPlaceholder = document.getElementById("cargoPlaceholder");
+      const logoImg = document.getElementById("logoImg");
+      const nomeSelect = document.getElementById("nomeSelect");
 
-<p class="MsoNormal" style='line-height:normal'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>Tel.: (51) 3209 – 4722</span></p>
+      const users = [
+        { name: "AGATHA BRANCO SANTOS", role: "Gerente de Projetos" },
+        {
+          name: "ALESSANDRA DOS SANTOS EUGÊNIO",
+          role: "Assistente de Recurso Humanos",
+        },
+        {
+          name: "AMANDA DE OLIVEIRA CASAGRANDE",
+          role: "Desenvolvedor de Software",
+        },
+        {
+          name: "AMANDA FREITAS DE ALMEIDA PRUEZA ALVES",
+          role: "UI-UX Designer",
+        },
+        { name: "AMANDA SILVEIRA DAMASIO", role: "Assistente Administrativo" },
+        { name: "AMANDA TRAJANO FERNANDES", role: "Product Owner" },
+        {
+          name: "ANA BEATRIZ DOS SANTOS PONTES",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "ANA CAROLINA FORMIGA FREIRE", role: "Arquiteta de Soluções" },
+        { name: "ANA FLAVIA PRADO ROCHA", role: "Gerente de Projetos" },
+        { name: "ANDRÉ LUIS CORSO", role: "Gerente de Projetos" },
+        {
+          name: "ANTONIO CEZAR VERÇOSA CAVALCANTE",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "BRUNO DE PAIVA PALMA", role: "Analista de Dados" },
+        { name: "CARLOS ALBERTO FREITAS DUTRA", role: "Diretor Financeiro" },
+        {
+          name: "CARLOS HENRIQUE DA SILVA BARBOZA",
+          role: "Analista de Infraestrutura",
+        },
+        { name: "CASSIO DORNAS DE OLIVEIRA", role: "Analista GIS" },
+        { name: "CIBELE CARNEIRO DA SILVA", role: "Executivo de Negócios" },
+        { name: "DAFNE CAVALHEIRO DOS SANTOS", role: "Analista GIS" },
+        {
+          name: "DAIANE DOS SANTOS VIEGAS FERREIRA",
+          role: "Analista de Recursos Humanos",
+        },
+        { name: "DANIEL DE SOUZA MENEZES", role: "Analista GIS" },
+        {
+          name: "DAVID FREITAS DE OLIVEIRA",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "DIEGO BARBOSA DE AMORIM", role: "Desenvolvedor de Software" },
+        { name: "DIEGO DOS SANTOS DE MEDEIROS", role: "Gerente de Projetos" },
+        { name: "DILMAR AMADOR DE MIRANDA", role: "Consultor" },
+        { name: "DIONARA DE NARDIN", role: "Diretora Operacional" },
+        { name: "EDUARDA DA FONSECA PEREIRA", role: "Designer Gráfico" },
+        { name: "EDUARDA VALADA OLIVEIRA", role: "Analista Administrativo" },
+        { name: "EDUARDO LUIZ APPEL DE VARGAS", role: "Analista de Sistemas" },
+        { name: "ERICK ENDERSON DA ROSA MEIRELES", role: "Jovem Aprendiz" },
+        { name: "ÉRITON GUSTAVO SCHERER", role: "Desenvolvedor de Software" },
+        { name: "GABRIELE OZÓRIO WINK", role: "Product Owner" },
+        { name: "GEOVANE JADIEL HARTMANN", role: "Desenvolvedor de Software" },
+        { name: "GIANLUCA DE SOUZA POZZI", role: "Analista GIS" },
+        { name: "GILBERTO RODRIGUES DE MATOS", role: "Desenvolvedor GIS" },
+        { name: "GUILHERME PEDRO SCHAFFER", role: "Analista GIS" },
+        { name: "GUSTAVO BATISTA SOARES", role: "Executivo de Negócios" },
+        { name: "HELIMAR BAGGATTINI", role: "Desenvolvedor de Software" },
+        { name: "HENRIQUE VARGAS DO PRADO", role: "Arquiteto de Soluções" },
+        {
+          name: "HILDEBRANDO JOSE CARNEIRO MOREIRA JUNIOR",
+          role: "Analista de Dados",
+        },
+        { name: "ISADORA MENEGON", role: "Product Owner" },
+        { name: "JAQUELINE ALVES PISETTA", role: "Product Owner" },
+        { name: "JESSYCA REIS LOPES", role: "Controller de Operações" },
+        {
+          name: "JHUAN LUIS ALMEIDA ASSUMPÇÃO",
+          role: "Desenvolvedor de Software",
+        },
+        {
+          name: "JOÃO RAPHAEL GOMES DA SILVA OLIVEIRA",
+          role: "Analista de Portfólio",
+        },
+        { name: "JONATHAN REIS NASCIMENTO", role: "Desenvolvedor de Software" },
+        { name: "JULIA DE FREITAS MARTINS", role: "UI-UX Designer" },
+        {
+          name: "KAUA FELIPE DOS SANTOS FERREIRA",
+          role: "Estagiário de Suporte e Infraestrutura",
+        },
+        { name: "KELY KERESKI WEBKOSKI", role: "Analista Comercial" },
+        {
+          name: "KLEVER CORREA DA SILVEIRA",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "KYRLLAN NOGUEIRA DE SOUZA", role: "Tech Lead Development" },
+        { name: "LARISSA KOLASSA DE SOUSA", role: "Encarregada Adminstrativa" },
+        { name: "LAURA ISABEL DOS SANTOS FLORES", role: "Analista GIS" },
+        {
+          name: "LAUREN ANYFAH DE CASTRO ARAMBURU",
+          role: "Estagiário de Marketing - Eventos",
+        },
+        { name: "LEANDRO ALVES RAMOS", role: "Gerente de Projetos" },
+        {
+          name: "LEONARDO PEREIRA OLIVEIRA",
+          role: "Sales Development Representative",
+        },
+        { name: "LETICIA CORADINI FRANTZ", role: "-" },
+        { name: "LETICIA TABITA NAITZEL", role: "Analista de Dados" },
+        { name: "LUCAS DIAS DA SILVA", role: "Desenvolvedor de Software" },
+        { name: "LUCAS GIOVANNI TEIXEIRA", role: "Executivo de Negócios" },
+        {
+          name: "LUCAS VINICIUS BONESSO PASCHOALOTTO",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "LUIZ ALBERTO DA COSTA MARCHIORI", role: "Diretor Executivo" },
+        {
+          name: "MARCELO FOSCHIERA DE MESQUITA",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "MARCELO PASINATTO XAVIER", role: "Analista Comercial" },
+        {
+          name: "MARCELUS GOMES BUENEVIDES",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "MÁRCIO COLARES DE LEMOS", role: "Analista GIS" },
+        { name: "MARCO ANTÔNIO KIRCH DE OLIVEIRA", role: "GIS Tech Lead" },
+        {
+          name: "MARIANA FUCKS CESAR",
+          role: "Assistente Comercial de Licitações",
+        },
+        {
+          name: "MARIANA LUÍSA GONÇALVES DA SILVA",
+          role: "Estagiaria de Dados",
+        },
+        { name: "MATHEUS DINIZ GONÇALVES DA SILVA", role: "Desenvolvedor GIS" },
+        { name: "MATHEUS SILVA DA VIEGA", role: "Product Owner" },
+        { name: "MERCURY RONITO CONCEIÇÃO", role: "Desenvolvedor de Software" },
+        {
+          name: "NATÁLIA LIMBERGER DOS SANTOS VIEIRA",
+          role: "Coordenadora de Marketing e Parcerias",
+        },
+        { name: "NICHOLAS BECKER PIRES PI", role: "Analista de Dados" },
+        { name: "NICOLAS AZAMBUJA ZEFERINO", role: "Product Owner" },
+        {
+          name: "PAULO FRANKLIN SANTOS NUNES",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "PÉTERSON OLIVEIRA SILVEIRA", role: "Product Owner" },
+        { name: "PRISCILA CARLA DA SILVA DE SOUZA", role: "Product Owner" },
+        { name: "RAFAELA MILITZ SANTOS", role: "Analista de Marketing" },
+        { name: "RENAN DE VASCONCELLOS TRINDADE", role: "Tech Lead UI-UX" },
+        { name: "RODRIGO DA SILVA SANTOS", role: "Analista de Infraestrutura" },
+        { name: "RODRIGO FERREIRA DE AZEVEDO", role: "Gerente de Projetos" },
+        { name: "SUSAN DA SILVA", role: "Gerente de Projetos" },
+        { name: "TAIS DE FÁTIMA RAMOS GUIMARAES", role: "Gerente de Projetos" },
+        { name: "THALES RAUER FEIJÓ", role: "Analista de Banco de Dados" },
+        { name: "VENICIOS GUSTAVO SANTOS", role: "Diretor Comercial" },
+        {
+          name: "VITOR HUGO BARROS DE MORAES CORREA",
+          role: "Estagiário de Marketing - Inteligência de Mercado",
+        },
+        {
+          name: "WALDYR ERALDO SCHNEIDER NETO",
+          role: "Desenvolvedor de Software",
+        },
+        { name: "WILIAM FRISON RIBEIRO", role: "Desenvolvedor de Software" },
+        { name: "WILLIAN PRATES DA SILVA", role: "Desenvolvedor de Software" },
+      ];
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><a href="https://codex.com.br/"><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>codex.com.br</span></a></p>
+      function capitalizeName(name) {
+        const lowercaseWords = ["da", "de", "do", "dos", "das", "e"];
+        return name
+          .toLowerCase()
+          .split(" ")
+          .map((word) =>
+            lowercaseWords.includes(word)
+              ? word
+              : word.charAt(0).toUpperCase() + word.slice(1)
+          )
+          .join(" ");
+      }
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><a href="https://www.linkedin.com/company/codexcorporacao"><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>LinkedIn</span></a><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>&nbsp;|</span><a href="https://www.instagram.com/codexcorporacao/"><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>Instagram</span></a><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>&nbsp;|</span><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#B7B7B7'> </span><a href="https://www.facebook.com/Codex-105358185476740"><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>Facebook</span></a></p>
+      users.forEach((user) => {
+        const option = document.createElement("option");
+        option.value = user.name;
+        option.text = capitalizeName(user.name);
+        nomeSelect.appendChild(option);
+      });
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='color:black'><img border=0 width=225 height=64 id="logoImg" src="Assinatura_Email_20Anos_arquivos/image001.png" alt="Logotipo&#10;&#10;O conteúdo gerado por IA pode estar incorreto."></span></p>
+      nomeSelect.addEventListener("change", () => {
+        const selected = users.find((u) => u.name === nomeSelect.value);
+        if (selected) {
+          nomeInput.value = capitalizeName(selected.name);
+          cargoInput.value = capitalizeName(selected.role);
+        } else {
+          nomeInput.value = "";
+          cargoInput.value = "";
+        }
+      });
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:#999999'>Esri Partner Network – Gold</span></p>
+      function fillSignature(nome, cargo) {
+        if (nome) nomePlaceholder.innerText = nome;
+        if (cargo) cargoPlaceholder.innerText = cargo;
 
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-family:"Times New Roman",serif;color:black'>&nbsp;</span></p>
-
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-size:8.0pt;font-family:"Calibri",sans-serif;color:#999999'>Esta mensagem pode conter informação confidencial ou privilegiada, sendo seu sigilo protegido por lei.</span></p>
-
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-size:8.0pt;font-family:"Calibri",sans-serif;color:#999999'>Se você recebeu esta mensagem por engano, por favor, avise imediatamente ao remetente, respondendo o e-mail e em seguida apague-a.</span></p>
-
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-size:8.0pt;font-family:"Calibri",sans-serif;color:#999999'>Agradecemos sua cooperação.</span></p>
-
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-family:"Times New Roman",serif;color:black'>&nbsp;</span></p>
-
-<p class="MsoNormal" style='margin-bottom:0cm;line-height:normal'><span style='font-size:8.0pt;font-family:"Segoe UI Emoji",sans-serif;color:#548235'>&#127795;</span><span style='font-size:8.0pt;font-family:"Calibri",sans-serif;color:#548235'>&nbsp;Pense em sua responsabilidade e compromisso com o Meio Ambiente. Só imprima se for realmente necessário.</span></p>
-
-<p class="MsoNormal" style='line-height:normal'><span style='color:black'>&nbsp;</span></p>
-
-<p class="MsoNormal">&nbsp;</p>
-
-</div>
-
-<script>
-const IMAGE_URL = "https://raw.githubusercontent.com/cdxhostfiles/sign/refs/heads/main/image001.png";
-
-const nomeInput = document.getElementById("nomeInput");
-const cargoInput = document.getElementById("cargoInput");
-const applyBtn = document.getElementById("applyBtn");
-const editBtn = document.getElementById("editBtn");
-const resultBubble = document.getElementById("resultBubble");
-const combinedPreview = document.getElementById("combinedPreview");
-const signatureControls = document.getElementById("signatureControls");
-
-const nomePlaceholder = document.getElementById("nomePlaceholder");
-const cargoPlaceholder = document.getElementById("cargoPlaceholder");
-const logoImg = document.getElementById("logoImg");
-
-// Função para ler parâmetros da URL
-function getURLParameter(name) {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(name);
-}
-
-// Atualiza os campos e placeholders
-function fillSignatureFromURL(name, role){
-    if(name) nomePlaceholder.innerText = decodeURIComponent(name);
-    if(role) cargoPlaceholder.innerText = decodeURIComponent(role);
-
-    if(name || role){
         logoImg.src = IMAGE_URL;
-        const previewText = [name, role].filter(Boolean).map(decodeURIComponent).join(" — ");
+        const previewText = [nome, cargo].filter(Boolean).join(" — ");
         combinedPreview.innerText = previewText;
+
         resultBubble.style.display = "block";
-        resultBubble.setAttribute("aria-hidden","false");
         signatureControls.style.display = "none";
-        editBtn.style.display = "inline-block";
-    }
-}
+        backBtn.style.display = "inline-block";
+        baseLinkBtn.style.display = "inline-block"; // Mostra botão de link base
+      }
 
-// Preenche ao carregar a página
-window.addEventListener("load", function(){
-    logoImg.src = IMAGE_URL;
-    const nameParam = getURLParameter("name");
-    const roleParam = getURLParameter("role");
-    fillSignatureFromURL(nameParam, roleParam);
-});
+      applyBtn.addEventListener("click", () => {
+        const nome = nomeInput.value.trim();
+        const cargo = cargoInput.value.trim();
+        if (!nome && !cargo) {
+          alert("Preencha pelo menos um dos campos antes de inserir.");
+          return;
+        }
+        fillSignature(nome, cargo);
+      });
 
-// Botões de inserir e editar
-applyBtn.addEventListener("click", () => {
-    const nome = nomeInput.value.trim();
-    const cargo = cargoInput.value.trim();
+      backBtn.addEventListener("click", () => {
+        signatureControls.style.display = "block";
+        resultBubble.style.display = "none";
+        backBtn.style.display = "none";
+        baseLinkBtn.style.display = "none";
+      });
 
-    if(!nome && !cargo){
-        alert("Preencha pelo menos um dos campos antes de inserir.");
-        return;
-    }
+      baseLinkBtn.addEventListener("click", () => {
+        window.location.href =
+          window.location.origin + window.location.pathname;
+      });
 
-    const query = new URLSearchParams();
-    if(nome) query.set("name", nome);
-    if(cargo) query.set("role", cargo);
-    window.history.replaceState({}, "", "?" + query.toString());
+      function getURLParameter(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
 
-    fillSignatureFromURL(nome, cargo);
-});
-
-editBtn.addEventListener("click", () => {
-    signatureControls.style.display = "block";
-    editBtn.style.display = "none";
-    resultBubble.style.display = "none";
-});
-</script>
-
-</body>
+      window.addEventListener("load", () => {
+        logoImg.src = IMAGE_URL;
+        const nameParam = getURLParameter("name");
+        const roleParam = getURLParameter("role");
+        if (nameParam || roleParam) {
+          fillSignature(
+            capitalizeName(decodeURIComponent(nameParam || "")),
+            capitalizeName(decodeURIComponent(roleParam || ""))
+          );
+        }
+      });
+    </script>
+  </body>
 </html>
